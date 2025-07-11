@@ -57,6 +57,13 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        admin: {
+          nav: "hsl(var(--admin-nav))",
+          "nav-hover": "hsl(var(--admin-nav-hover))",
+          "nav-active": "hsl(var(--admin-nav-active))",
+          card: "hsl(var(--admin-card))",
+          "card-border": "hsl(var(--admin-card-border))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
