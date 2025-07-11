@@ -14,6 +14,7 @@ import {
   X,
   ChevronDown,
   Home,
+  Archive,
 } from "lucide-react";
 
 const navigationItems = [
