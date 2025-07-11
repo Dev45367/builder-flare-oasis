@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AdminSidebar } from "./components/AdminSidebar";
 import Dashboard from "./pages/Dashboard";
 import StoreManagement from "./pages/StoreManagement";
+import InventoryManagement from "./pages/InventoryManagement";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import NotFound from "./pages/NotFound";
 import {
