@@ -116,6 +116,14 @@ const App = () => (
             }
           />
           <Route
+            path="/inventory"
+            element={
+              <AdminLayout>
+                <InventoryManagement />
+              </AdminLayout>
+            }
+          />
+          <Route
             path="/reviews"
             element={
               <AdminLayout>
