@@ -44,6 +44,11 @@ const navigationItems = [
     icon: Package,
   },
   {
+    name: "Inventory",
+    href: "/inventory",
+    icon: Archive,
+  },
+  {
     name: "Reviews & Feedback",
     href: "/reviews",
     icon: MessageSquare,
