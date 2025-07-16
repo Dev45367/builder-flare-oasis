@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { SidebarThemeToggle } from "./ThemeToggle";
 import {
   BarChart3,
   Building2,
