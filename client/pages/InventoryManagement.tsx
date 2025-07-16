@@ -247,7 +247,7 @@ export default function InventoryManagement() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white">
+          <h1 className="text-3xl font-bold text-foreground">
             Inventory Management
           </h1>
           <p className="text-gray-400 mt-2">
@@ -273,7 +273,7 @@ export default function InventoryManagement() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-400">{stat.name}</p>
-                <p className="text-2xl font-bold text-white mt-1">
+                <p className="text-2xl font-bold text-foreground mt-1">
                   {stat.value}
                 </p>
               </div>
@@ -294,14 +294,14 @@ export default function InventoryManagement() {
             placeholder="Search by name or SKU..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-admin-card border border-admin-card-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full pl-10 pr-4 py-2 bg-admin-card border border-admin-card-border rounded-lg text-foreground placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
         <div className="flex gap-2">
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="px-3 py-2 bg-admin-card border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+            className="px-3 py-2 bg-admin-card border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
           >
             {categories.map((category) => (
               <option key={category} value={category}>
@@ -312,7 +312,7 @@ export default function InventoryManagement() {
           <select
             value={storeFilter}
             onChange={(e) => setStoreFilter(e.target.value)}
-            className="px-3 py-2 bg-admin-card border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+            className="px-3 py-2 bg-admin-card border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
           >
             {stores.map((store) => (
               <option key={store} value={store}>
@@ -323,7 +323,7 @@ export default function InventoryManagement() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-2 bg-admin-card border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+            className="px-3 py-2 bg-admin-card border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
           >
             <option value="all">All Status</option>
             <option value="in-stock">In Stock</option>
@@ -364,7 +364,7 @@ export default function InventoryManagement() {
                 <tr key={item.id} className="hover:bg-admin-nav-hover">
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div>
-                      <div className="text-sm font-medium text-white">
+                      <div className="text-sm font-medium text-foreground">
                         {item.name}
                       </div>
                       <div className="text-sm text-gray-400">
@@ -378,12 +378,14 @@ export default function InventoryManagement() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                       <Building2 className="h-4 w-4 text-gray-400 mr-2" />
-                      <span className="text-sm text-white">{item.store}</span>
+                      <span className="text-sm text-foreground">
+                        {item.store}
+                      </span>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div>
-                      <div className="text-sm font-medium text-white">
+                      <div className="text-sm font-medium text-foreground">
                         {item.quantity} units
                       </div>
                       <div className="text-xs text-gray-400">
@@ -393,7 +395,7 @@ export default function InventoryManagement() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div>
-                      <div className="text-sm text-white">
+                      <div className="text-sm text-foreground">
                         Sell: ${item.sellPrice}
                       </div>
                       <div className="text-xs text-gray-400">
@@ -416,7 +418,7 @@ export default function InventoryManagement() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <div className="flex items-center space-x-2">
-                      <button className="text-gray-400 hover:text-white">
+                      <button className="text-gray-400 hover:text-foreground">
                         <Edit className="h-4 w-4" />
                       </button>
                       <button
@@ -439,12 +441,12 @@ export default function InventoryManagement() {
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-admin-card border border-admin-card-border rounded-xl p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-semibold text-white">
+              <h2 className="text-xl font-semibold text-foreground">
                 Add New Inventory Item
               </h2>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="text-gray-400 hover:text-white"
+                className="text-gray-400 hover:text-foreground"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -461,7 +463,7 @@ export default function InventoryManagement() {
                   onChange={(e) =>
                     setNewItem({ ...newItem, name: e.target.value })
                   }
-                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Enter product name"
                 />
               </div>
@@ -476,7 +478,7 @@ export default function InventoryManagement() {
                   onChange={(e) =>
                     setNewItem({ ...newItem, sku: e.target.value })
                   }
-                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Enter SKU"
                 />
               </div>
@@ -490,7 +492,7 @@ export default function InventoryManagement() {
                   onChange={(e) =>
                     setNewItem({ ...newItem, category: e.target.value })
                   }
-                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="">Select category</option>
                   {categories.slice(1).map((category) => (
@@ -510,7 +512,7 @@ export default function InventoryManagement() {
                   onChange={(e) =>
                     setNewItem({ ...newItem, store: e.target.value })
                   }
-                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="">Select store</option>
                   {stores.slice(1).map((store) => (
@@ -534,7 +536,7 @@ export default function InventoryManagement() {
                       quantity: parseInt(e.target.value) || 0,
                     })
                   }
-                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="0"
                 />
               </div>
@@ -549,7 +551,7 @@ export default function InventoryManagement() {
                   onChange={(e) =>
                     setNewItem({ ...newItem, supplier: e.target.value })
                   }
-                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="Enter supplier name"
                 />
               </div>
@@ -567,7 +569,7 @@ export default function InventoryManagement() {
                       minStock: parseInt(e.target.value) || 0,
                     })
                   }
-                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="0"
                 />
               </div>
@@ -585,7 +587,7 @@ export default function InventoryManagement() {
                       maxStock: parseInt(e.target.value) || 0,
                     })
                   }
-                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="0"
                 />
               </div>
@@ -604,7 +606,7 @@ export default function InventoryManagement() {
                       cost: parseFloat(e.target.value) || 0,
                     })
                   }
-                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="0.00"
                 />
               </div>
@@ -623,7 +625,7 @@ export default function InventoryManagement() {
                       sellPrice: parseFloat(e.target.value) || 0,
                     })
                   }
-                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-3 py-2 bg-admin-nav border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                   placeholder="0.00"
                 />
               </div>
@@ -632,7 +634,7 @@ export default function InventoryManagement() {
             <div className="flex justify-end space-x-3 mt-6">
               <button
                 onClick={() => setShowAddModal(false)}
-                className="px-4 py-2 text-gray-400 hover:text-white transition-colors"
+                className="px-4 py-2 text-gray-400 hover:text-foreground transition-colors"
               >
                 Cancel
               </button>
