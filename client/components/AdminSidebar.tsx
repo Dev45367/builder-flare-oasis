@@ -217,8 +217,12 @@ export function AdminSidebar({ className }: AdminSidebarProps) {
                 </span>
               </div>
               <div className="ml-3">
-                <p className="text-sm font-medium text-white">Admin User</p>
-                <p className="text-xs text-gray-400">admin@company.com</p>
+                <p className="text-sm font-medium text-sidebar-foreground">
+                  Admin User
+                </p>
+                <p className="text-xs text-sidebar-foreground/60">
+                  admin@company.com
+                </p>
               </div>
             </div>
           </div>
