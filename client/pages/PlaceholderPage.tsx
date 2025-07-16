@@ -17,7 +17,7 @@ export default function PlaceholderPage({
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white">{title}</h1>
+        <h1 className="text-3xl font-bold text-foreground">{title}</h1>
         <p className="text-gray-400 mt-2">{description}</p>
       </div>
 
@@ -28,7 +28,9 @@ export default function PlaceholderPage({
             <Icon className="h-12 w-12 text-primary" />
           </div>
 
-          <h2 className="text-xl font-semibold text-white mb-4">Coming Soon</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-4">
+            Coming Soon
+          </h2>
 
           <p className="text-gray-400 mb-6">
             This section is currently under development. Check back soon for
@@ -37,7 +39,7 @@ export default function PlaceholderPage({
 
           {features.length > 0 && (
             <div className="text-left">
-              <h3 className="text-lg font-medium text-white mb-3">
+              <h3 className="text-lg font-medium text-foreground mb-3">
                 Planned Features:
               </h3>
               <ul className="space-y-2">
