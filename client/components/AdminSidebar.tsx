@@ -125,8 +125,12 @@ export function AdminSidebar({ className }: AdminSidebarProps) {
         <div className="flex flex-col h-full">
           {/* Logo */}
           <div className="p-6 border-b border-admin-card-border">
-            <h1 className="text-xl font-bold text-white">AdminPanel</h1>
-            <p className="text-sm text-gray-400 mt-1">Business Management</p>
+            <h1 className="text-xl font-bold text-sidebar-foreground">
+              AdminPanel
+            </h1>
+            <p className="text-sm text-sidebar-foreground/70 mt-1">
+              Business Management
+            </p>
           </div>
 
           {/* Navigation */}
