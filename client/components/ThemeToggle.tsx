@@ -81,7 +81,7 @@ export function SidebarThemeToggle() {
       onClick={toggleTheme}
       className={cn(
         "flex items-center w-full px-3 py-2.5 text-sm font-medium rounded-lg transition-colors",
-        "text-gray-300 hover:bg-admin-nav-hover hover:text-white",
+        "text-sidebar-foreground/80 hover:bg-admin-nav-hover hover:text-sidebar-foreground",
         "group",
       )}
       aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
