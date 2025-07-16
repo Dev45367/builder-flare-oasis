@@ -199,6 +199,11 @@ export function AdminSidebar({ className }: AdminSidebarProps) {
             </ul>
           </nav>
 
+          {/* Theme Toggle */}
+          <div className="p-4 border-t border-admin-card-border">
+            <SidebarThemeToggle />
+          </div>
+
           {/* User info */}
           <div className="p-4 border-t border-admin-card-border">
             <div className="flex items-center">
