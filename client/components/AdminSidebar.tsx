@@ -173,7 +173,7 @@ export function AdminSidebar({ className }: AdminSidebarProps) {
                                   "block px-3 py-2 text-sm rounded-lg transition-colors",
                                   isActive(subitem.href)
                                     ? "bg-primary text-primary-foreground"
-                                    : "text-gray-400 hover:bg-admin-nav-hover hover:text-white",
+                                    : "text-sidebar-foreground/60 hover:bg-admin-nav-hover hover:text-sidebar-foreground",
                                 )}
                               >
                                 {subitem.name}
