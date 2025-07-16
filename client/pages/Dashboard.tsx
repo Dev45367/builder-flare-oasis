@@ -100,7 +100,7 @@ export default function Dashboard() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-400">{stat.name}</p>
-                <p className="text-2xl font-bold text-white mt-1">
+                <p className="text-2xl font-bold text-foreground mt-1">
                   {stat.value}
                 </p>
               </div>
@@ -134,7 +134,7 @@ export default function Dashboard() {
         {/* Recent Activity */}
         <div className="lg:col-span-2">
           <div className="bg-admin-card border border-admin-card-border rounded-xl p-6">
-            <h2 className="text-xl font-semibold text-white mb-6">
+            <h2 className="text-xl font-semibold text-foreground mb-6">
               Recent Activity
             </h2>
             <div className="space-y-4">
@@ -158,7 +158,9 @@ export default function Dashboard() {
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm text-white">{activity.message}</p>
+                    <p className="text-sm text-foreground">
+                      {activity.message}
+                    </p>
                     <p className="text-xs text-gray-400 mt-1">
                       {activity.time}
                     </p>
@@ -197,7 +199,7 @@ export default function Dashboard() {
         {/* Top Performing Stores */}
         <div>
           <div className="bg-admin-card border border-admin-card-border rounded-xl p-6">
-            <h2 className="text-xl font-semibold text-white mb-6">
+            <h2 className="text-xl font-semibold text-foreground mb-6">
               Top Performing Stores
             </h2>
             <div className="space-y-4">
@@ -213,7 +215,7 @@ export default function Dashboard() {
                       </span>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-white">
+                      <p className="text-sm font-medium text-foreground">
                         {store.name}
                       </p>
                       <p className="text-xs text-gray-400">
@@ -222,7 +224,7 @@ export default function Dashboard() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm font-medium text-white">
+                    <p className="text-sm font-medium text-foreground">
                       {store.revenue}
                     </p>
                     <div className="flex items-center">
@@ -241,7 +243,9 @@ export default function Dashboard() {
 
       {/* Quick Actions */}
       <div className="bg-admin-card border border-admin-card-border rounded-xl p-6">
-        <h2 className="text-xl font-semibold text-white mb-6">Quick Actions</h2>
+        <h2 className="text-xl font-semibold text-foreground mb-6">
+          Quick Actions
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
             { name: "Add New Store", icon: Building2, href: "/stores/new" },
@@ -254,7 +258,7 @@ export default function Dashboard() {
               className="flex items-center space-x-3 p-4 bg-admin-nav hover:bg-admin-nav-hover rounded-lg transition-colors group"
             >
               <action.icon className="h-5 w-5 text-primary group-hover:scale-110 transition-transform" />
-              <span className="text-sm font-medium text-white">
+              <span className="text-sm font-medium text-foreground">
                 {action.name}
               </span>
             </button>
