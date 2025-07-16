@@ -101,7 +101,7 @@ export function AdminSidebar({ className }: AdminSidebarProps) {
       {/* Mobile menu button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-admin-nav rounded-lg text-white"
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-admin-nav rounded-lg text-sidebar-foreground"
       >
         {isOpen ? <X size={20} /> : <Menu size={20} />}
       </button>
