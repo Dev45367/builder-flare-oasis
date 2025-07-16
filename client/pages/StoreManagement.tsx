@@ -92,7 +92,9 @@ export default function StoreManagement() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-white">Store Management</h1>
+          <h1 className="text-3xl font-bold text-foreground">
+            Store Management
+          </h1>
           <p className="text-gray-400 mt-2">
             Manage your stores, locations, and performance
           </p>
@@ -112,7 +114,7 @@ export default function StoreManagement() {
             placeholder="Search stores..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-admin-card border border-admin-card-border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
+            className="w-full pl-10 pr-4 py-2 bg-admin-card border border-admin-card-border rounded-lg text-foreground placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
           />
         </div>
         <div className="flex items-center gap-2">
@@ -120,7 +122,7 @@ export default function StoreManagement() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-2 bg-admin-card border border-admin-card-border rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-primary"
+            className="px-3 py-2 bg-admin-card border border-admin-card-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
           >
             <option value="all">All Status</option>
             <option value="active">Active</option>
@@ -172,7 +174,7 @@ export default function StoreManagement() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-400">{stat.name}</p>
-                <p className="text-2xl font-bold text-white mt-1">
+                <p className="text-2xl font-bold text-foreground mt-1">
                   {stat.value}
                 </p>
               </div>
@@ -195,7 +197,7 @@ export default function StoreManagement() {
             {/* Store Header */}
             <div className="flex items-start justify-between mb-4">
               <div>
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-foreground">
                   {store.name}
                 </h3>
                 <div className="flex items-center mt-1">
@@ -243,26 +245,30 @@ export default function StoreManagement() {
             <div className="grid grid-cols-2 gap-4 pt-4 border-t border-admin-card-border">
               <div>
                 <p className="text-xs text-gray-400">Revenue</p>
-                <p className="text-sm font-medium text-white">
+                <p className="text-sm font-medium text-foreground">
                   {store.revenue}
                 </p>
               </div>
               <div>
                 <p className="text-xs text-gray-400">Orders</p>
-                <p className="text-sm font-medium text-white">{store.orders}</p>
+                <p className="text-sm font-medium text-foreground">
+                  {store.orders}
+                </p>
               </div>
               <div>
                 <p className="text-xs text-gray-400">Rating</p>
                 <div className="flex items-center">
                   <Star className="h-3 w-3 text-yellow-400 fill-current mr-1" />
-                  <p className="text-sm font-medium text-white">
+                  <p className="text-sm font-medium text-foreground">
                     {store.rating}
                   </p>
                 </div>
               </div>
               <div>
                 <p className="text-xs text-gray-400">Staff</p>
-                <p className="text-sm font-medium text-white">{store.staff}</p>
+                <p className="text-sm font-medium text-foreground">
+                  {store.staff}
+                </p>
               </div>
             </div>
           </div>
@@ -273,7 +279,7 @@ export default function StoreManagement() {
       {filteredStores.length === 0 && (
         <div className="text-center py-12">
           <Package className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-white mb-2">
+          <h3 className="text-lg font-medium text-foreground mb-2">
             No stores found
           </h3>
           <p className="text-gray-400 mb-4">
