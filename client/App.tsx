@@ -38,10 +38,11 @@ function AdminLayout({ children }: { children: React.ReactNode }) {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+    <ThemeProvider defaultTheme="dark">
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
         <Routes>
           <Route
             path="/"
@@ -97,7 +98,7 @@ const App = () => (
               </AdminLayout>
             }
           />
-          <Route
+                    <Route
             path="/products"
             element={
               <AdminLayout>
