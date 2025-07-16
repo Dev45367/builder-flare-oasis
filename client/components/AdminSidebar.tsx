@@ -146,7 +146,7 @@ export function AdminSidebar({ className }: AdminSidebarProps) {
                           "w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-lg transition-colors",
                           isSubmenuActive(item.submenu)
                             ? "bg-primary text-primary-foreground"
-                            : "text-gray-300 hover:bg-admin-nav-hover hover:text-white",
+                            : "text-sidebar-foreground/80 hover:bg-admin-nav-hover hover:text-sidebar-foreground",
                         )}
                       >
                         <div className="flex items-center">
