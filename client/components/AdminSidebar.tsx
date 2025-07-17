@@ -17,6 +17,7 @@ import {
   ChevronDown,
   Home,
   Archive,
+  LogOut,
 } from "lucide-react";
 
 const navigationItems = [
