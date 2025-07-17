@@ -80,7 +80,9 @@ interface AdminSidebarProps {
 export function AdminSidebar({ className }: AdminSidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
   const location = useLocation();
+  const { user, logout } = useAuth();
 
   const toggleSubmenu = (itemName: string) => {
     setExpandedItems((prev) =>
