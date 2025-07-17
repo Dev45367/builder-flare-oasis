@@ -100,6 +100,14 @@ export function AdminSidebar({ className }: AdminSidebarProps) {
     return submenu.some((item) => location.pathname === item.href);
   };
 
+  const handleLogout = async () => {
+    setIsLoggingOut(true);
+    // Add a small delay for animation effect
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    logout();
+    setIsLoggingOut(false);
+  };
+
   return (
     <>
       {/* Mobile menu button */}
