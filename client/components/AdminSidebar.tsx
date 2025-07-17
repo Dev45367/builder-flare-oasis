@@ -222,21 +222,65 @@ export function AdminSidebar({ className }: AdminSidebarProps) {
 
           {/* User info */}
           <div className="p-4 border-t border-admin-card-border">
-            <div className="flex items-center">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+            <div className="flex items-center mb-3">
+              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                 <span className="text-sm font-medium text-primary-foreground">
-                  A
+                  {user?.name?.charAt(0).toUpperCase() || "U"}
                 </span>
               </div>
-              <div className="ml-3">
-                <p className="text-sm font-medium text-sidebar-foreground">
-                  Admin User
+              <div className="ml-3 flex-1 min-w-0">
+                <p className="text-sm font-medium text-sidebar-foreground truncate">
+                  {user?.name || "User"}
                 </p>
-                <p className="text-xs text-sidebar-foreground/60">
-                  admin@company.com
+                <p className="text-xs text-sidebar-foreground/60 truncate">
+                  {user?.email || "user@example.com"}
                 </p>
+                <span className="inline-block px-2 py-0.5 text-xs bg-primary/10 text-primary rounded-full mt-1">
+                  {user?.role || "user"}
+                </span>
               </div>
             </div>
+
+            {/* Animated Logout Button */}
+            <button
+              onClick={handleLogout}
+              disabled={isLoggingOut}
+              className={cn(
+                "w-full flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-300 ease-out group relative overflow-hidden",
+                "text-sidebar-foreground/80 hover:bg-destructive/10 hover:text-destructive",
+                "transform hover:scale-[1.02] active:scale-[0.98]",
+                "focus:outline-none focus:ring-2 focus:ring-destructive/50",
+                "disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none",
+                isLoggingOut && "animate-pulse",
+              )}
+            >
+              <div className="relative mr-3">
+                <LogOut
+                  className={cn(
+                    "h-4 w-4 transition-all duration-300",
+                    isLoggingOut
+                      ? "animate-spin opacity-0"
+                      : "group-hover:translate-x-0.5 opacity-100",
+                  )}
+                />
+                {isLoggingOut && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-3 h-3 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
+                  </div>
+                )}
+              </div>
+              <span
+                className={cn(
+                  "transition-all duration-300",
+                  isLoggingOut ? "opacity-60" : "group-hover:translate-x-1",
+                )}
+              >
+                {isLoggingOut ? "Signing out..." : "Sign Out"}
+              </span>
+
+              {/* Ripple effect */}
+              <div className="absolute inset-0 bg-destructive/20 rounded-lg scale-0 group-active:scale-100 opacity-0 group-active:opacity-100 transition-all duration-200"></div>
+            </button>
           </div>
         </div>
       </div>
