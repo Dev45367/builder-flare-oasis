@@ -14,6 +14,7 @@ import StoreManagement from "./pages/StoreManagement";
 import InventoryManagement from "./pages/InventoryManagement";
 import PlaceholderPage from "./pages/PlaceholderPage";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
 import {
   FileText,
   Users,
