@@ -38,6 +38,248 @@ function AdminLayout({ children }: { children: React.ReactNode }) {
   );
 }
 
+function AuthenticatedApp() {
+  const { isAuthenticated, isLoading } = useAuth();
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return <Login />;
+  }
+
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <Dashboard />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/stores"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <StoreManagement />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/inventory"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <InventoryManagement />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/listings"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <PlaceholderPage
+                title="Listings Management"
+                description="Manage product listings, inventory, and catalog items"
+                icon={FileText}
+                features={[
+                  "Product catalog management",
+                  "Inventory tracking",
+                  "Listing optimization",
+                  "Bulk operations",
+                  "Category management",
+                ]}
+              />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/vendors-staff"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <PlaceholderPage
+                title="Vendors & Staff Management"
+                description="Manage your vendors, staff members, and team permissions"
+                icon={Users}
+                features={[
+                  "Vendor onboarding",
+                  "Staff directory",
+                  "Role-based permissions",
+                  "Performance tracking",
+                  "Communication tools",
+                ]}
+              />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/products"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <PlaceholderPage
+                title="Products & Pricing"
+                description="Manage products, pricing strategies, and promotional offers"
+                icon={Package}
+                features={[
+                  "Product management",
+                  "Dynamic pricing",
+                  "Promotional campaigns",
+                  "Price optimization",
+                  "Inventory alerts",
+                ]}
+              />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/reviews"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <PlaceholderPage
+                title="Reviews & Feedback"
+                description="Monitor customer reviews, feedback, and satisfaction metrics"
+                icon={MessageSquare}
+                features={[
+                  "Review monitoring",
+                  "Sentiment analysis",
+                  "Response management",
+                  "Feedback trends",
+                  "Reputation tracking",
+                ]}
+              />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/analytics"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <PlaceholderPage
+                title="Analytics Overview"
+                description="Comprehensive analytics and business intelligence"
+                icon={BarChart3}
+                features={[
+                  "Real-time dashboards",
+                  "Custom reports",
+                  "Data visualization",
+                  "Performance metrics",
+                  "Export capabilities",
+                ]}
+              />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/analytics/customers"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <PlaceholderPage
+                title="Customer Analytics"
+                description="Deep insights into customer behavior and preferences"
+                icon={Users2}
+                features={[
+                  "Customer segmentation",
+                  "Behavior analysis",
+                  "Lifetime value tracking",
+                  "Churn prediction",
+                  "Engagement metrics",
+                ]}
+              />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/analytics/sales"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <PlaceholderPage
+                title="Sales Analytics"
+                description="Track sales performance and revenue trends"
+                icon={TrendingUp}
+                features={[
+                  "Revenue tracking",
+                  "Sales forecasting",
+                  "Performance by store",
+                  "Product analysis",
+                  "Seasonal trends",
+                ]}
+              />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/analytics/market"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <PlaceholderPage
+                title="Market Analytics"
+                description="Market trends, competition analysis, and opportunities"
+                icon={ShoppingBag}
+                features={[
+                  "Market trends",
+                  "Competitive analysis",
+                  "Market share tracking",
+                  "Opportunity identification",
+                  "Industry benchmarks",
+                ]}
+              />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/settings"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <PlaceholderPage
+                title="Settings"
+                description="Configure your admin panel and business settings"
+                icon={Settings}
+                features={[
+                  "User management",
+                  "Security settings",
+                  "Notification preferences",
+                  "Integration settings",
+                  "Backup & restore",
+                ]}
+              />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route path="/login" element={<Login />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider defaultTheme="dark">
