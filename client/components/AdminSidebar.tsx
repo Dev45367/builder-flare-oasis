@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { SidebarThemeToggle } from "./ThemeToggle";
+import { useAuth } from "@/contexts/AuthContext";
 import {
   BarChart3,
   Building2,
