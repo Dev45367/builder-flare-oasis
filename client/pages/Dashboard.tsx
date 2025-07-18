@@ -266,6 +266,9 @@ export default function Dashboard() {
           ))}
         </div>
       </div>
+
+      {/* Theme Demo - Remove this in production */}
+      <ThemeDemo />
     </div>
   );
 }
