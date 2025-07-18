@@ -4,104 +4,133 @@
 
 @layer base {
   /**
-   * Tailwind CSS theme
-   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
-   * A different format will require also updating the theme in tailwind.config.ts.
+   * ✅ Light Mode Color Palette & 🌙 Dark Mode Color Palette
+   * Comprehensive burgundy/wine theme for admin panel
+   * Colors are expressed as HSL values for CSS variables.
    * 
-   * Primary color: #673147 (Deep burgundy/purple)
+   * Light Mode Primary: Deep Burgundy #7B2D26
+   * Dark Mode Primary: Wine Red #9E2A2B
   */
   :root {
-    /* Light theme (default) */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* ✅ Light Mode (Default) */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Core Layout Colors */
+    --background: 37 71% 97%; /* Ivory #FDF9F4 */
+    --foreground: 0 0% 11%; /* Charcoal #1C1C1C */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Card and Panel Colors */
+    --card: 0 0% 100%; /* Warm White #FFFFFF */
+    --card-foreground: 0 0% 11%; /* Charcoal #1C1C1C */
+    --popover: 0 0% 100%; /* Warm White #FFFFFF */
+    --popover-foreground: 0 0% 11%; /* Charcoal #1C1C1C */
 
-    --primary: 332 35% 30%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary Brand Colors */
+    --primary: 8 52% 32%; /* Deep Burgundy #7B2D26 */
+    --primary-foreground: 0 0% 100%; /* White text on burgundy */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary Colors */
+    --secondary: 39 73% 88%; /* Champagne #F7E8C9 */
+    --secondary-foreground: 0 0% 11%; /* Charcoal #1C1C1C */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted Colors */
+    --muted: 39 73% 88%; /* Champagne #F7E8C9 */
+    --muted-foreground: 0 0% 37%; /* Slate #5E5E5E */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent Colors */
+    --accent: 39 73% 88%; /* Champagne #F7E8C9 */
+    --accent-foreground: 0 0% 11%; /* Charcoal #1C1C1C */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Semantic Colors */
+    --destructive: 348 71% 50%; /* Crimson #D72638 */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --success: 141 50% 48%; /* Emerald #3BB273 */
+    --success-foreground: 0 0% 100%; /* White */
+    --warning: 45 100% 52%; /* Amber #FFC107 */
+    --warning-foreground: 0 0% 11%; /* Charcoal */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 332 35% 30%;
+    /* Interactive Elements */
+    --border: 0 0% 89%; /* Soft Gray #E4E4E4 */
+    --input: 0 0% 89%; /* Soft Gray #E4E4E4 */
+    --ring: 8 52% 32%; /* Deep Burgundy #7B2D26 */
 
     --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 222.2 84% 4.9%;
-    --sidebar-primary: 332 35% 30%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 222.2 84% 4.9%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 332 35% 30%;
+    /* Sidebar Colors */
+    --sidebar-background: 37 71% 97%; /* Ivory #FDF9F4 */
+    --sidebar-foreground: 0 0% 11%; /* Charcoal #1C1C1C */
+    --sidebar-primary: 8 52% 32%; /* Deep Burgundy #7B2D26 */
+    --sidebar-primary-foreground: 0 0% 100%; /* White */
+    --sidebar-accent: 39 73% 88%; /* Champagne #F7E8C9 */
+    --sidebar-accent-foreground: 0 0% 11%; /* Charcoal #1C1C1C */
+    --sidebar-border: 0 0% 89%; /* Soft Gray #E4E4E4 */
+    --sidebar-ring: 8 52% 32%; /* Deep Burgundy #7B2D26 */
 
-    --admin-nav: 0 0% 96%;
-    --admin-nav-hover: 0 0% 92%;
-    --admin-nav-active: 332 35% 30%;
-    --admin-card: 0 0% 100%;
-    --admin-card-border: 214.3 31.8% 91.4%;
+    /* Admin Panel Specific Colors */
+    --admin-nav: 0 0% 100%; /* Warm White #FFFFFF */
+    --admin-nav-hover: 39 73% 88%; /* Champagne #F7E8C9 */
+    --admin-nav-active: 8 52% 32%; /* Deep Burgundy #7B2D26 */
+    --admin-card: 0 0% 100%; /* Warm White #FFFFFF */
+    --admin-card-border: 0 0% 89%; /* Soft Gray #E4E4E4 */
   }
 
   .dark {
-    /* Dark theme - using new primary color */
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    /* 🌙 Dark Mode */
 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
+    /* Core Layout Colors */
+    --background: 0 0% 7%; /* Rich Black #121212 */
+    --foreground: 0 0% 96%; /* Light Beige #F5F5F5 */
 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    /* Card and Panel Colors */
+    --card: 0 0% 12%; /* Charcoal Gray #1E1E1E */
+    --card-foreground: 0 0% 96%; /* Light Beige #F5F5F5 */
+    --popover: 0 0% 12%; /* Charcoal Gray #1E1E1E */
+    --popover-foreground: 0 0% 96%; /* Light Beige #F5F5F5 */
 
-    --primary: 332 35% 30%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary Brand Colors */
+    --primary: 359 57% 39%; /* Wine Red #9E2A2B */
+    --primary-foreground: 0 0% 100%; /* White text on wine red */
 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
+    /* Secondary Colors */
+    --secondary: 0 0% 12%; /* Charcoal Gray #1E1E1E */
+    --secondary-foreground: 0 0% 96%; /* Light Beige #F5F5F5 */
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    /* Muted Colors */
+    --muted: 0 0% 12%; /* Charcoal Gray #1E1E1E */
+    --muted-foreground: 0 0% 69%; /* Muted Gray #B0B0B0 */
 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    /* Accent Colors */
+    --accent: 39 49% 66%; /* Golden Beige #D4AF7F */
+    --accent-foreground: 0 0% 96%; /* Light Beige #F5F5F5 */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    /* Semantic Colors */
+    --destructive: 0 100% 64%; /* Soft Red #FF4C4C */
+    --destructive-foreground: 0 0% 100%; /* White */
+    --success: 145 100% 39%; /* Deep Green #00C851 */
+    --success-foreground: 0 0% 100%; /* White */
+    --warning: 48 100% 50%; /* Golden Amber #FFC400 */
+    --warning-foreground: 0 0% 7%; /* Rich Black */
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 332 35% 30%;
+    /* Interactive Elements */
+    --border: 0 0% 23%; /* Dim Gray #3A3A3A */
+    --input: 0 0% 23%; /* Dim Gray #3A3A3A */
+    --ring: 359 57% 39%; /* Wine Red #9E2A2B */
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 332 35% 30%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 332 35% 30%;
+    /* Sidebar Colors */
+    --sidebar-background: 0 0% 12%; /* Charcoal Gray #1E1E1E */
+    --sidebar-foreground: 0 0% 96%; /* Light Beige #F5F5F5 */
+    --sidebar-primary: 359 57% 39%; /* Wine Red #9E2A2B */
+    --sidebar-primary-foreground: 0 0% 100%; /* White */
+    --sidebar-accent: 0 0% 12%; /* Charcoal Gray #1E1E1E */
+    --sidebar-accent-foreground: 0 0% 96%; /* Light Beige #F5F5F5 */
+    --sidebar-border: 0 0% 23%; /* Dim Gray #3A3A3A */
+    --sidebar-ring: 359 57% 39%; /* Wine Red #9E2A2B */
 
-    --admin-nav: 240 7% 8%;
-    --admin-nav-hover: 240 5% 12%;
-    --admin-nav-active: 332 35% 30%;
-    --admin-card: 240 6% 6%;
-    --admin-card-border: 240 3.7% 15.9%;
+    /* Admin Panel Specific Colors */
+    --admin-nav: 0 0% 7%; /* Rich Black #121212 */
+    --admin-nav-hover: 0 0% 12%; /* Charcoal Gray #1E1E1E */
+    --admin-nav-active: 359 57% 39%; /* Wine Red #9E2A2B */
+    --admin-card: 0 0% 12%; /* Charcoal Gray #1E1E1E */
+    --admin-card-border: 0 0% 23%; /* Dim Gray #3A3A3A */
   }
 }
 
@@ -112,5 +141,84 @@
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  /* Enhanced focus styles for better accessibility */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Smooth transitions for theme switching */
+  * {
+    transition-property:
+      color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  /* Custom scrollbar styling for dark/light themes */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent;
+  }
+
+  /* Selection colors */
+  ::selection {
+    @apply bg-primary/20 text-foreground;
+  }
+}
+
+@layer components {
+  /* Enhanced button styles with new colors */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 focus:bg-primary/90 focus:ring-2 focus:ring-primary/50;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 focus:bg-secondary/90 focus:ring-2 focus:ring-secondary/50;
+  }
+
+  .btn-success {
+    @apply bg-success text-success-foreground hover:bg-success/90 focus:bg-success/90 focus:ring-2 focus:ring-success/50;
+  }
+
+  .btn-warning {
+    @apply bg-warning text-warning-foreground hover:bg-warning/90 focus:bg-warning/90 focus:ring-2 focus:ring-warning/50;
+  }
+
+  .btn-destructive {
+    @apply bg-destructive text-destructive-foreground hover:bg-destructive/90 focus:bg-destructive/90 focus:ring-2 focus:ring-destructive/50;
+  }
+
+  /* Enhanced card styles */
+  .card-elevated {
+    @apply bg-card border border-border shadow-md hover:shadow-lg transition-shadow;
+  }
+
+  /* Status indicator styles */
+  .status-success {
+    @apply bg-success/10 text-success border border-success/20;
+  }
+
+  .status-warning {
+    @apply bg-warning/10 text-warning-foreground border border-warning/20;
+  }
+
+  .status-error {
+    @apply bg-destructive/10 text-destructive border border-destructive/20;
   }
 }
