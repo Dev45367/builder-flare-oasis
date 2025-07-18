@@ -1,10 +1,10 @@
 // Centralized Theme Configuration
-// Manage all theme colors from this single file
+// Comprehensive burgundy/wine color palette for admin panel
 
 /**
  * Convert HEX to HSL values for CSS variables
- * @param hex - Hex color value (e.g., "#673147")
- * @returns HSL values as string (e.g., "332 35% 30%")
+ * @param hex - Hex color value (e.g., "#7B2D26")
+ * @returns HSL values as string (e.g., "8 52% 32%")
  */
 function hexToHsl(hex: string): string {
   const r = parseInt(hex.slice(1, 3), 16) / 255;
@@ -38,124 +38,183 @@ function hexToHsl(hex: string): string {
   return `${Math.round(h * 360)} ${Math.round(s * 100)}% ${Math.round(l * 100)}%`;
 }
 
-/**
- * Generate color variations based on primary color
- */
-function generateColorVariations(primaryHex: string) {
-  // Convert primary color to HSL
-  const primaryHsl = hexToHsl(primaryHex);
+// ✅ Light Mode Color Palette
+export const lightColors = {
+  primary: "#7B2D26", // Deep Burgundy - Buttons, accents
+  accent: "#F7E8C9", // Champagne - Secondary CTAs, badges
+  background: "#FDF9F4", // Ivory - Main background
+  cardBackground: "#FFFFFF", // Warm White - Panels, containers
+  textPrimary: "#1C1C1C", // Charcoal - Headers, body text
+  textSecondary: "#5E5E5E", // Slate - Descriptions, notes
+  success: "#3BB273", // Emerald - Positive states
+  warning: "#FFC107", // Amber - Alerts, notices
+  error: "#D72638", // Crimson - Errors, danger alerts
+  divider: "#E4E4E4", // Soft Gray - Borders, lines
+};
 
-  // Extract HSL values
-  const hslMatch = primaryHsl.match(/(\d+)\s+(\d+)%\s+(\d+)%/);
-  if (!hslMatch) throw new Error("Invalid HSL format");
+// 🌙 Dark Mode Color Palette
+export const darkColors = {
+  primary: "#9E2A2B", // Wine Red - Buttons, links
+  accent: "#D4AF7F", // Golden Beige - Highlights, buttons
+  background: "#121212", // Rich Black - Main BG
+  cardBackground: "#1E1E1E", // Charcoal Gray - Panels, list containers
+  textPrimary: "#F5F5F5", // Light Beige - Main text
+  textSecondary: "#B0B0B0", // Muted Gray - Descriptions
+  success: "#00C851", // Deep Green - Success badge
+  warning: "#FFC400", // Golden Amber - Caution
+  error: "#FF4C4C", // Soft Red - Error states
+  divider: "#3A3A3A", // Dim Gray - Lines
+};
 
-  const h = parseInt(hslMatch[1]);
-  const s = parseInt(hslMatch[2]);
-  const l = parseInt(hslMatch[3]);
+// Convert colors to HSL for CSS variables
+const lightHsl = {
+  primary: hexToHsl(lightColors.primary), // 8 52% 32%
+  accent: hexToHsl(lightColors.accent), // 39 73% 88%
+  background: hexToHsl(lightColors.background), // 37 71% 97%
+  cardBackground: hexToHsl(lightColors.cardBackground), // 0 0% 100%
+  textPrimary: hexToHsl(lightColors.textPrimary), // 0 0% 11%
+  textSecondary: hexToHsl(lightColors.textSecondary), // 0 0% 37%
+  success: hexToHsl(lightColors.success), // 141 50% 48%
+  warning: hexToHsl(lightColors.warning), // 45 100% 52%
+  error: hexToHsl(lightColors.error), // 348 71% 50%
+  divider: hexToHsl(lightColors.divider), // 0 0% 89%
+};
 
-  return {
-    primary: primaryHsl,
-    primaryForeground: l > 50 ? "0 0% 0%" : "0 0% 100%", // Auto contrast
-    primaryHover: `${h} ${s}% ${Math.max(l - 10, 5)}%`, // Darker
-    primaryLight: `${h} ${Math.max(s - 20, 10)}% ${Math.min(l + 20, 95)}%`, // Lighter
-    primaryDark: `${h} ${Math.min(s + 10, 100)}% ${Math.max(l - 20, 5)}%`, // Darker variation
-  };
-}
-
-// Primary brand color - Change this to update the entire theme
-export const BRAND_COLOR = "#673147";
-
-// Generate all color variations
-const colorVariations = generateColorVariations(BRAND_COLOR);
+const darkHsl = {
+  primary: hexToHsl(darkColors.primary), // 359 57% 39%
+  accent: hexToHsl(darkColors.accent), // 39 49% 66%
+  background: hexToHsl(darkColors.background), // 0 0% 7%
+  cardBackground: hexToHsl(darkColors.cardBackground), // 0 0% 12%
+  textPrimary: hexToHsl(darkColors.textPrimary), // 0 0% 96%
+  textSecondary: hexToHsl(darkColors.textSecondary), // 0 0% 69%
+  success: hexToHsl(darkColors.success), // 145 100% 39%
+  warning: hexToHsl(darkColors.warning), // 48 100% 50%
+  error: hexToHsl(darkColors.error), // 0 100% 64%
+  divider: hexToHsl(darkColors.divider), // 0 0% 23%
+};
 
 // Theme Configuration Object
 export const themeConfig = {
   colors: {
-    // Primary brand colors
-    primary: {
-      main: BRAND_COLOR,
-      hsl: colorVariations.primary,
-      foreground: colorVariations.primaryForeground,
-      hover: colorVariations.primaryHover,
-      light: colorVariations.primaryLight,
-      dark: colorVariations.primaryDark,
-    },
-
-    // Semantic colors
-    destructive: {
-      hsl: "0 84.2% 60.2%",
-      foreground: "0 0% 98%",
-    },
-
-    // Light theme colors
+    // Light theme configuration
     light: {
-      background: "0 0% 100%",
-      foreground: "222.2 84% 4.9%",
-      card: "0 0% 100%",
-      cardForeground: "222.2 84% 4.9%",
-      popover: "0 0% 100%",
-      popoverForeground: "222.2 84% 4.9%",
-      secondary: "210 40% 96.1%",
-      secondaryForeground: "222.2 47.4% 11.2%",
-      muted: "210 40% 96.1%",
-      mutedForeground: "215.4 16.3% 46.9%",
-      accent: "210 40% 96.1%",
-      accentForeground: "222.2 47.4% 11.2%",
-      border: "214.3 31.8% 91.4%",
-      input: "214.3 31.8% 91.4%",
-      ring: colorVariations.primary,
+      // Core colors
+      background: lightHsl.background,
+      foreground: lightHsl.textPrimary,
+      card: lightHsl.cardBackground,
+      cardForeground: lightHsl.textPrimary,
+      popover: lightHsl.cardBackground,
+      popoverForeground: lightHsl.textPrimary,
+
+      // Primary branding
+      primary: lightHsl.primary,
+      primaryForeground: "0 0% 100%", // White text on burgundy
+
+      // Secondary colors
+      secondary: lightHsl.accent,
+      secondaryForeground: lightHsl.textPrimary,
+
+      // Muted colors
+      muted: lightHsl.accent,
+      mutedForeground: lightHsl.textSecondary,
+
+      // Accent colors
+      accent: lightHsl.accent,
+      accentForeground: lightHsl.textPrimary,
+
+      // Interactive elements
+      border: lightHsl.divider,
+      input: lightHsl.divider,
+      ring: lightHsl.primary,
+
+      // Semantic colors
+      destructive: lightHsl.error,
+      destructiveForeground: "0 0% 100%",
+      success: lightHsl.success,
+      successForeground: "0 0% 100%",
+      warning: lightHsl.warning,
+      warningForeground: lightHsl.textPrimary,
+
+      // Sidebar specific
       sidebar: {
-        background: "0 0% 98%",
-        foreground: "222.2 84% 4.9%",
-        primary: colorVariations.primary,
-        primaryForeground: colorVariations.primaryForeground,
-        accent: "240 4.8% 95.9%",
-        accentForeground: "222.2 84% 4.9%",
-        border: "220 13% 91%",
-        ring: colorVariations.primary,
+        background: lightHsl.background,
+        foreground: lightHsl.textPrimary,
+        primary: lightHsl.primary,
+        primaryForeground: "0 0% 100%",
+        accent: lightHsl.accent,
+        accentForeground: lightHsl.textPrimary,
+        border: lightHsl.divider,
+        ring: lightHsl.primary,
       },
+
+      // Admin panel specific
       admin: {
-        nav: "0 0% 96%",
-        navHover: "0 0% 92%",
-        navActive: colorVariations.primary,
-        card: "0 0% 100%",
-        cardBorder: "214.3 31.8% 91.4%",
+        nav: lightHsl.cardBackground,
+        navHover: lightHsl.accent,
+        navActive: lightHsl.primary,
+        card: lightHsl.cardBackground,
+        cardBorder: lightHsl.divider,
       },
     },
 
-    // Dark theme colors
+    // Dark theme configuration
     dark: {
-      background: "240 10% 3.9%",
-      foreground: "0 0% 98%",
-      card: "240 10% 3.9%",
-      cardForeground: "0 0% 98%",
-      popover: "240 10% 3.9%",
-      popoverForeground: "0 0% 98%",
-      secondary: "240 3.7% 15.9%",
-      secondaryForeground: "0 0% 98%",
-      muted: "240 3.7% 15.9%",
-      mutedForeground: "240 5% 64.9%",
-      accent: "240 3.7% 15.9%",
-      accentForeground: "0 0% 98%",
-      border: "240 3.7% 15.9%",
-      input: "240 3.7% 15.9%",
-      ring: colorVariations.primary,
+      // Core colors
+      background: darkHsl.background,
+      foreground: darkHsl.textPrimary,
+      card: darkHsl.cardBackground,
+      cardForeground: darkHsl.textPrimary,
+      popover: darkHsl.cardBackground,
+      popoverForeground: darkHsl.textPrimary,
+
+      // Primary branding
+      primary: darkHsl.primary,
+      primaryForeground: "0 0% 100%", // White text on wine red
+
+      // Secondary colors
+      secondary: darkHsl.cardBackground,
+      secondaryForeground: darkHsl.textPrimary,
+
+      // Muted colors
+      muted: darkHsl.cardBackground,
+      mutedForeground: darkHsl.textSecondary,
+
+      // Accent colors
+      accent: darkHsl.accent,
+      accentForeground: darkHsl.textPrimary,
+
+      // Interactive elements
+      border: darkHsl.divider,
+      input: darkHsl.divider,
+      ring: darkHsl.primary,
+
+      // Semantic colors
+      destructive: darkHsl.error,
+      destructiveForeground: "0 0% 100%",
+      success: darkHsl.success,
+      successForeground: "0 0% 100%",
+      warning: darkHsl.warning,
+      warningForeground: darkHsl.background,
+
+      // Sidebar specific
       sidebar: {
-        background: "240 5.9% 10%",
-        foreground: "240 4.8% 95.9%",
-        primary: colorVariations.primary,
-        primaryForeground: colorVariations.primaryForeground,
-        accent: "240 3.7% 15.9%",
-        accentForeground: "240 4.8% 95.9%",
-        border: "240 3.7% 15.9%",
-        ring: colorVariations.primary,
+        background: darkHsl.cardBackground,
+        foreground: darkHsl.textPrimary,
+        primary: darkHsl.primary,
+        primaryForeground: "0 0% 100%",
+        accent: darkHsl.cardBackground,
+        accentForeground: darkHsl.textPrimary,
+        border: darkHsl.divider,
+        ring: darkHsl.primary,
       },
+
+      // Admin panel specific
       admin: {
-        nav: "240 7% 8%",
-        navHover: "240 5% 12%",
-        navActive: colorVariations.primary,
-        card: "240 6% 6%",
-        cardBorder: "240 3.7% 15.9%",
+        nav: darkHsl.background,
+        navHover: darkHsl.cardBackground,
+        navActive: darkHsl.primary,
+        card: darkHsl.cardBackground,
+        cardBorder: darkHsl.divider,
       },
     },
   },
@@ -170,7 +229,7 @@ export const themeConfig = {
     slow: "0.5s",
   },
 
-  // Shadows
+  // Shadows (adjusted for new color scheme)
   shadows: {
     sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
     md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
@@ -179,17 +238,18 @@ export const themeConfig = {
   },
 };
 
-// Export individual values for easy access
-export const colors = themeConfig.colors;
-export const primaryColor = themeConfig.colors.primary;
+// Export brand colors for easy access
+export const BRAND_COLOR_LIGHT = lightColors.primary; // #7B2D26
+export const BRAND_COLOR_DARK = darkColors.primary; // #9E2A2B
+export const ACCENT_COLOR_LIGHT = lightColors.accent; // #F7E8C9
+export const ACCENT_COLOR_DARK = darkColors.accent; // #D4AF7F
+
+// Current primary color (defaults to light mode)
+export const BRAND_COLOR = BRAND_COLOR_LIGHT;
 
 // Utility function to get theme colors for a specific mode
 export function getThemeColors(mode: "light" | "dark") {
-  return {
-    ...themeConfig.colors[mode],
-    primary: themeConfig.colors.primary,
-    destructive: themeConfig.colors.destructive,
-  };
+  return themeConfig.colors[mode];
 }
 
 // CSS Custom Properties Generator
@@ -203,16 +263,16 @@ export function generateCSSVariables(mode: "light" | "dark") {
     "--card-foreground": colors.cardForeground,
     "--popover": colors.popover,
     "--popover-foreground": colors.popoverForeground,
-    "--primary": colors.primary.hsl,
-    "--primary-foreground": colors.primary.foreground,
+    "--primary": colors.primary,
+    "--primary-foreground": colors.primaryForeground,
     "--secondary": colors.secondary,
     "--secondary-foreground": colors.secondaryForeground,
     "--muted": colors.muted,
     "--muted-foreground": colors.mutedForeground,
     "--accent": colors.accent,
     "--accent-foreground": colors.accentForeground,
-    "--destructive": colors.destructive.hsl,
-    "--destructive-foreground": colors.destructive.foreground,
+    "--destructive": colors.destructive,
+    "--destructive-foreground": colors.destructiveForeground,
     "--border": colors.border,
     "--input": colors.input,
     "--ring": colors.ring,
