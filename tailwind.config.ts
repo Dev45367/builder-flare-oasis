@@ -14,6 +14,8 @@ export default {
       },
     },
     extend: {
+      // Theme colors managed from client/config/theme.ts
+      // Current primary color: #673147
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
