@@ -7,6 +7,8 @@
    * Tailwind CSS theme
    * tailwind.config.ts expects the following color variables to be expressed as HSL values.
    * A different format will require also updating the theme in tailwind.config.ts.
+   * 
+   * Primary color: #673147 (Deep burgundy/purple)
   */
   :root {
     /* Light theme (default) */
@@ -19,8 +21,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 142.1 76.2% 36.3%;
-    --primary-foreground: 355.7 100% 97.3%;
+    --primary: 332 35% 30%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -36,28 +38,28 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 142.1 76.2% 36.3%;
+    --ring: 332 35% 30%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 222.2 84% 4.9%;
-    --sidebar-primary: 142.1 76.2% 36.3%;
-    --sidebar-primary-foreground: 355.7 100% 97.3%;
+    --sidebar-primary: 332 35% 30%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 222.2 84% 4.9%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 142.1 76.2% 36.3%;
+    --sidebar-ring: 332 35% 30%;
 
     --admin-nav: 0 0% 96%;
     --admin-nav-hover: 0 0% 92%;
-    --admin-nav-active: 142.1 76.2% 36.3%;
+    --admin-nav-active: 332 35% 30%;
     --admin-card: 0 0% 100%;
     --admin-card-border: 214.3 31.8% 91.4%;
   }
 
   .dark {
-    /* Dark theme - preserving existing design */
+    /* Dark theme - using new primary color */
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
 
@@ -67,8 +69,8 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 142.1 76.2% 36.3%;
-    --primary-foreground: 355.7 100% 97.3%;
+    --primary: 332 35% 30%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -84,20 +86,20 @@
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 142.1 76.2% 36.3%;
+    --ring: 332 35% 30%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 142.1 76.2% 36.3%;
-    --sidebar-primary-foreground: 355.7 100% 97.3%;
+    --sidebar-primary: 332 35% 30%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 142.1 76.2% 36.3%;
+    --sidebar-ring: 332 35% 30%;
 
     --admin-nav: 240 7% 8%;
     --admin-nav-hover: 240 5% 12%;
-    --admin-nav-active: 142.1 76.2% 36.3%;
+    --admin-nav-active: 332 35% 30%;
     --admin-card: 240 6% 6%;
     --admin-card-border: 240 3.7% 15.9%;
   }
